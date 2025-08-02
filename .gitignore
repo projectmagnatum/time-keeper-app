@@ -1,0 +1,11 @@
+# macOS files
+.DS_Store
+
+# Visual Studio Code settings
+.vscode/
+
+# Node modules (if you ever add them)
+node_modules/
+
+# Live Server cache
+.sass-cache/
