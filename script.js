@@ -6,23 +6,6 @@ if ("serviceWorker" in navigator) {
   });
 }
 
-let deferredPrompt;
-window.addEventListener("beforeinstallprompt", e => {
-  e.preventDefault();
-  deferredPrompt = e;
-  // show your own “Install App” button
-  document.getElementById("installBtn").style.display = "block";
-});
-
-document.getElementById("installBtn").addEventListener("click", async () => {
-  if (!deferredPrompt) return;
-  deferredPrompt.prompt();
-  const { outcome } = await deferredPrompt.userChoice;
-  console.log("User response to install prompt:", outcome);
-  deferredPrompt = null;
-  document.getElementById("installBtn").style.display = "none";
-});
-
 // Navigation
 const navButtons = document.querySelectorAll(".app-nav button");
 navButtons.forEach(btn => {
