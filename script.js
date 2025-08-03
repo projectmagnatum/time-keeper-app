@@ -11,7 +11,22 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("load", () => {
       navigator.serviceWorker
         .register("./service-worker.js")
+        .then(registration => {
+          // Check for updates every 60 minutes
+          setInterval(() => {
+            registration.update();
+          }, 60 * 60 * 1000);
+        })
         .catch(err => console.error("SW registration failed:", err));
+    });
+
+    // Listen for messages from service worker
+    navigator.serviceWorker.addEventListener('message', event => {
+      if (event.data.type === 'UPDATE_AVAILABLE') {
+        if (confirm('A new version is available! Reload to update?')) {
+          window.location.reload();
+        }
+      }
     });
   }
 
