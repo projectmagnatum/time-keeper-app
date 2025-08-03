@@ -1,4 +1,4 @@
-const CACHE_NAME = "time-keeper-cache-v2";   // ← bump this on each deploy
+const CACHE_NAME = "time-keeper-cache-v4";   // ← bump this on each deploy
 const ASSETS = [
   "index.html",
   "styles.css",

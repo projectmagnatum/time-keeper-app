@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,54 +19,60 @@
       <div id="dayProgress" class="progress-bar"></div>
     </div>
     <div class="date-nav">
-      <button id="prevDate">◀️</button>
+      <button id="prevDate" type="button">◀️</button>
       <input type="date" id="selectedDate" />
-      <button id="nextDate">▶️</button>
+      <button id="nextDate" type="button">▶️</button>
     </div>
     <div id="timeBlocksContainer" class="time-blocks"></div>
   </section>
 
   <!-- Analytics View -->
   <section id="analyticsView" class="app-view">
-    <!-- Section header with background and title -->
     <div class="section-header" style="background-image:url('backgrounds/dashboard.jpg')">
       <h1 class="section-title">Analytics</h1>
     </div>
-
-    <!-- Donut charts row -->
     <div class="analytics-header">
       <div id="noiseChart" class="donut-chart"></div>
       <div id="signalChart" class="donut-chart"></div>
     </div>
-
-    <!-- Breakdown list -->
     <div id="analyticsBreakdown" class="analytics-breakdown"></div>
   </section>
 
   <!-- Categories View -->
   <section id="categoriesView" class="app-view">
     <div class="section-header" style="background-image:url('backgrounds/dashboard.jpg')">
-      <h1 class="section-title">Dashboard</h1>
+      <h1 class="section-title">Categories</h1>
     </div>
-    <form id="categoryForm">
+
+    <form id="categoryForm" autocomplete="off">
       <input type="text" id="categoryName" placeholder="Category name" required />
       <select id="categoryType">
         <option value="SIGNAL">Signal</option>
         <option value="NOISE">Noise</option>
       </select>
       <input type="color" id="categoryColor" value="#0096B1" />
-      <button type="submit">Add Category</button>
+
+      <!-- quick‐apply dropdown & add button -->
+      <select id="presetColorList">
+        <option value="">— Quick pick —</option>
+      </select>
+      <button type="button" id="addPresetColor">Add to presets</button>
+
+      <button type="submit" id="saveCategoryBtn">Add Category</button>
     </form>
+
+    <!-- visual swatches -->
+    <div id="presetSwatches"></div>
+
     <ul id="categoryList"></ul>
   </section>
 
   <!-- Bottom Navigation -->
   <footer class="app-nav">
-    <button data-view="dashboard"><img src="icons/dashboard.svg" alt="Dashboard" /></button>
-    <button data-view="analytics"><img src="icons/analytics.svg" alt="Analytics" /></button>
-    <button data-view="categories"><img src="icons/categories.svg" alt="Categories" /></button>
+    <button data-view="dashboard" type="button"><img src="icons/dashboard.svg" alt="Dashboard" /></button>
+    <button data-view="analytics" type="button"><img src="icons/analytics.svg" alt="Analytics" /></button>
+    <button data-view="categories" type="button"><img src="icons/categories.svg" alt="Categories" /></button>
   </footer>
-
 
   <script src="script.js"></script>
 </body>
